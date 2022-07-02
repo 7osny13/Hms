@@ -1,0 +1,58 @@
+<odoo>
+    <data>
+
+        <record id="hms_patient_action" model="ir.actions.act_window">
+            <field name="name">Patient</field>
+            <field name="res_model">hms.patient</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+        <record id="hms_patient_view" model="ir.ui.view" >
+            <field name="name">Patient.view</field>
+            <field name="model">hms.patient</field>
+              <field name="arch" type="xml">
+                <form>
+                      <header>
+                    <field name="status" widget="statusbar" statusbar_visible="Undtermine,Good,Fair,Serious"/>
+                    </header>
+                    <sheet>
+                        <group>
+                        <group string ="basic">
+
+                            <field name = "first_name" required="True" />
+                            <field name = "last_name" required="True" />
+                            <field name = "email"  />
+                            <field name = "birthdate" />
+                            <field name = "create_date" />
+                            <field name = "ratio" attrs="{'required': [('pcr','=','True')]}" />
+                            <field name = "Blood_type" />
+
+                        </group>
+
+                        <group string="extra">
+                              <field name = "age" />
+                            <field name = "address" />
+                            <field name = "image" />
+                            <field name = "pcr" />
+                            <field name = "department_id" domain="[('is_opened','=','True')]" />
+                            <field name = "department_capacity" />
+<!--                            <field name = "doctor_id" widget="many2many_tags" />-->
+                        </group>
+
+                        <notebook>
+                            <page string ="history">
+                                <field name = "history" attrs="{'invisible': [('age','&lt;','50')]}" />
+                            </page>
+                        </notebook>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+
+        </record>
+
+        <menuitem id="hms_patient_root_menu" name="Hospital system"/>
+        <menuitem id="hms_patient_menu" name="patient"
+            parent="hms_patient_root_menu" action="hms_patient_action"/>
+    </data>
+</odoo>

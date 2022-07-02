@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <record id="log_tree" model="ir.ui.view">
+            <field name="name">logTree</field>
+            <field name="model">hms.patientlog</field>
+            <field name="arch" type="xml">
+
+                <tree>
+                    <field name="create_uid"/>
+                    <field name="create_date"/>
+                    <field name="description"/>
+
+                </tree>
+            </field>
+        </record>
+          <record id="hms_patientlog_action" model="ir.actions.act_window">
+            <field name="name">patientlog</field>
+            <field name="res_model">hms.patientlog</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+
+
+        <menuitem id="hms_patientlog_menu" name="PatientLog"
+            parent="hms_patient_root_menu" action="hms_patientlog_action"/>
+    </data>
+</odoo>
+
