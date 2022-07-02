@@ -4,7 +4,7 @@ from odoo.odoo.exceptions import ValidationError
 
 class Customerinherit(models.Model):
     _inherit = 'res.partner'
-    related_patient_id=fields.Many2one(comodel_name='hms.patient')
+    # related_patient_id=fields.Many2one('hms.patient')
     website=fields.Char()
 
     @api.constrains('email')

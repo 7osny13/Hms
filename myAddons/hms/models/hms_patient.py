@@ -5,7 +5,7 @@ from datetime import date
 
 class HmsPatient(models.Model) :
     _name = 'hms.patient'
-    _oder = "first_name"
+
 
     first_name = fields.Char()
     last_name = fields.Char()

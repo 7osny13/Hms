@@ -9,7 +9,7 @@
                     <field name="related_patient_id"/>
                 </field>
                 <field name="vat" position="attributes">
-                    <attribute name="required">True</attribute>
+                    <attrixbute name="required">True</attrixbute>
                 </field>
 
             </field>

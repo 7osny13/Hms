@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+
+        <record id="hms_patient_group_category" model="ir.module.category">
+            <field name="name">HMS management</field>
+        </record>
+
+        <record id="hms_patient_user" model="res.groups">
+            <field name="name">Patient user</field>
+            <field name="category_id" ref="hms_patient_group_category"/>
+        </record>
+
+        <record id="hms_patient_access_id" model="ir.model.access">
+            <field name="name">hms_patient_access</field>
+            <field name="model_id" ref="model_hms_patient"/>
+            <field name="group_id" ref="hms_patient_user"/>
+            <field name="perm_read">True</field>
+            <field name="perm_write">True</field>
+            <field name="perm_create">True</field>
+            <field name="perm_unlink">False</field>
+
+        </record>
+         <record id="hms_department_access_id" model="ir.model.access">
+            <field name="name">hms_department_access</field>
+            <field name="model_id" ref="model_hms_department"/>
+            <field name="group_id" ref="hms_patient_user"/>
+            <field name="perm_read">True</field>
+            <field name="perm_write">False</field>
+            <field name="perm_create">False</field>
+            <field name="perm_unlink">False</field>
+
+        </record>
+         <record id="hms_doctor_access_id" model="ir.model.access">
+            <field name="name">hms_doctor_access</field>
+            <field name="model_id" ref="model_hms_doctor"/>
+            <field name="group_id" ref="hms_patient_user"/>
+            <field name="perm_read">True</field>
+            <field name="perm_write">False</field>
+            <field name="perm_create">False</field>
+            <field name="perm_unlink">False</field>
+
+        </record>
+
+        <record id="hms_patient_manager" model="res.groups">
+            <field name="name">Patient manager</field>
+            <field name="category_id" ref="hms_patient_group_category"/>
+<!--            <field name="implied_ids" eval="[(4,ref('hms_patient_user')]"/>-->
+        </record>
+
+        <record id="hms_patient_access_manager" model="ir.model.access">
+            <field name="name">hms_patient_access_manager</field>
+            <field name="model_id" ref="model_hms_patient"/>
+            <field name="group_id" ref="hms_patient_manager"/>
+            <field name="perm_read">True</field>
+            <field name="perm_write">True</field>
+            <field name="perm_create">True</field>
+            <field name="perm_unlink">True</field>
+
+        </record>
+         <record id="hms_department_access_manager" model="ir.model.access">
+            <field name="name">hms_department_access_manager</field>
+            <field name="model_id" ref="model_hms_department"/>
+            <field name="group_id" ref="hms_patient_manager"/>
+            <field name="perm_read">True</field>
+            <field name="perm_write">True</field>
+            <field name="perm_create">True</field>
+            <field name="perm_unlink">True</field>
+
+        </record>
+         <record id="hms_doctor_access_manager" model="ir.model.access">
+            <field name="name">hms_doctor_access_manager</field>
+            <field name="model_id" ref="model_hms_doctor"/>
+            <field name="group_id" ref="hms_patient_manager"/>
+            <field name="perm_read">True</field>
+            <field name="perm_write">True</field>
+            <field name="perm_create">True</field>
+            <field name="perm_unlink">True</field>
+
+        </record>
+    </data>
+</odoo>
